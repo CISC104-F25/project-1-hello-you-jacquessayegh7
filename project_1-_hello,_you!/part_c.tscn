@@ -1,19 +1,46 @@
-[gd_scene format=3 uid="uid://clhttn3a0ep70"]
+[gd_scene load_steps=3 format=3 uid="uid://clhttn3a0ep70"]
+
+[ext_resource type="Texture2D" uid="uid://d3cmjtfawxf61" path="res://icon.svg" id="1_e15qq"]
+[ext_resource type="Texture2D" uid="uid://dnpgrnnmjyopi" path="res://Demon_Slayer_Kimetsu_no_Yaiba_Zenitsu_Agatsuma_2 (1).webp" id="2_3seef"]
 
 [node name="Part_C" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 42.0
+offset_right = 5.0
+offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PlaceholderLabel" type="Label" parent="."]
-layout_mode = 0
-offset_right = 1151.0
-offset_bottom = 656.0
-theme_override_font_sizes/font_size = 20
-text = "Add more labels, images, and other Control nodes to this scene to build your personal poster for Part C.
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 657.0
+offset_top = 73.0
+offset_right = 1079.0
+offset_bottom = 229.0
+theme_override_font_sizes/font_size = 30
+text = "Jacques Sayegh"
 
-Remember that you may need to scroll down to \"Theme Overrides > Font Sizes\" in the Inspector 
-to make your labels big enough to read. (This is font size 20px, for reference)."
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 672.0
+offset_top = 118.0
+offset_right = 939.0
+offset_bottom = 314.0
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+text = "I really love playing MTG "
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(762, 18)
+scale = Vector2(1, 0.875)
+texture = ExtResource("1_e15qq")
+
+[node name="DemonSlayerKimetsuNoYaibaZenitsuAgatsuma2(1)" type="Sprite2D" parent="."]
+position = Vector2(764, 298)
+scale = Vector2(0.134967, 0.139008)
+texture = ExtResource("2_3seef")

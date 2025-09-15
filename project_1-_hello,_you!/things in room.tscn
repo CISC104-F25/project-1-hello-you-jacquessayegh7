@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://4sy4oeoj170"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vq3a5"]
+size = Vector3(0.02, 0.5, 0.02)
+
+[sub_resource type="PrismMesh" id="PrismMesh_3gns2"]
+size = Vector3(0.6, 0.2, 0.02)
+
+[sub_resource type="BoxMesh" id="BoxMesh_blihe"]
+size = Vector3(0.03, 0.03, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_he8oe"]
+size = Vector3(0.06, -0.01, 0.005)
+
+[node name="Part_B" type="Node3D"]
+
+[node name="guitar neck" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.606832, 0.42916, 0.499355)
+mesh = SubResource("BoxMesh_vq3a5")
+
+[node name="guitar body" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0219719, 0.999759, 0, -0.999759, 0.0219719, 0, 0, 0, 1, 0.621944, 0.149109, 0.502594)
+mesh = SubResource("PrismMesh_3gns2")
+
+[node name="guitar end" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.10714, 0, 0, 0, 1.10714, 0, 0, 0, 1.10714, 0.603017, 0.692574, 0.503385)
+mesh = SubResource("BoxMesh_blihe")
+
+[node name="guitar tune" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60436, 0.715286, 0.502733)
+mesh = SubResource("BoxMesh_he8oe")
+
+[node name="guitar tune2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.602354, 0.699054, 0.503767)
+mesh = SubResource("BoxMesh_he8oe")
+
+[node name="guitar tune3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.608705, 0.680858, 0.508043)
+mesh = SubResource("BoxMesh_he8oe")

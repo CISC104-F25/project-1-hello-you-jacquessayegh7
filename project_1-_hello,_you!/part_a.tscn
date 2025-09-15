@@ -1,13 +1,158 @@
-[gd_scene load_steps=3 format=3 uid="uid://clwrsdsnmy3md"]
+[gd_scene load_steps=27 format=3 uid="uid://clwrsdsnmy3md"]
+
+[ext_resource type="PackedScene" uid="uid://4sy4oeoj170" path="res://things in room.tscn" id="1_ys316"]
+[ext_resource type="PackedScene" uid="uid://clhttn3a0ep70" path="res://part_c.tscn" id="2_to4tk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_to4tk"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_0jsbj"]
+sky_material = SubResource("ProceduralSkyMaterial_to4tk")
+
+[sub_resource type="Environment" id="Environment_q6bo7"]
+background_mode = 2
+sky = SubResource("Sky_0jsbj")
+tonemap_mode = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_m6jki"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ys316"]
 albedo_color = Color(0.21448, 0.1344, 0.28, 1)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_to4tk"]
+size = Vector2(1, 0.7)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ys316"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_to4tk"]
+size = Vector2(2, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_0jsbj"]
+size = Vector2(2, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_q6bo7"]
+size = Vector2(2, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_eso0h"]
+size = Vector2(2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_trumw"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_m6jki"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ys316"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_to4tk"]
+next_pass = SubResource("ParticleProcessMaterial_ys316")
+albedo_color = Color(0.427451, 0.0509804, 1, 1)
+albedo_texture = SubResource("ImageTexture_m6jki")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_e7awo"]
+top_radius = 0.2
+bottom_radius = 0.2
+height = 1.0
+
+[sub_resource type="Gradient" id="Gradient_0jsbj"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0, 0.366197, 1)
+colors = PackedColorArray(0.886275, 0, 0, 1, 0.960784, 0, 0, 1, 0.239437, 0.239437, 0.239437, 1, 1, 0, 0.0666667, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_q6bo7"]
+gradient = SubResource("Gradient_0jsbj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eso0h"]
+diffuse_mode = 1
+specular_mode = 1
+disable_ambient_light = true
+metallic = 0.82
+metallic_specular = 0.82
+metallic_texture_channel = 1
+roughness_texture = SubResource("GradientTexture1D_q6bo7")
+clearcoat_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_j0tu7"]
+size = Vector3(0.2, 0.2, 0.3)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_trumw"]
+albedo_color = Color(0.231373, 0.627451, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3xb3d"]
+size = Vector3(0.2, 0.2, 0.3)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_e7awo"]
+albedo_color = Color(0.235294, 0.552941, 1, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_grw75"]
+
 [node name="Part_A" type="Node3D"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_q6bo7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
 [node name="PlaceholderFloor" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.67902, 0, 0, 0, 1, 0, 0, 0, 2.65012, 0, 0, 0)
+transform = Transform3D(2.67902, 0, 0, 0, 1, 0, 0, 0, 2.65012, 0.33489, -0.185834, -0.0173613)
 mesh = SubResource("PlaneMesh_m6jki")
 surface_material_override/0 = SubResource("StandardMaterial3D_ys316")
+
+[node name="Extend floor" type="MeshInstance3D" parent="PlaceholderFloor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.201896, 0.266277, 0)
+mesh = SubResource("PlaneMesh_to4tk")
+
+[node name="main bedroom floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999999, 0, -0.0013439, 0, 1, 0, 0.0013439, 0, 0.999999, 0, 0.0638666, -0.000920713)
+mesh = SubResource("PlaneMesh_ys316")
+
+[node name="wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0142874, 0.514032, -1.0257)
+mesh = SubResource("QuadMesh_to4tk")
+
+[node name="wall2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.999062, 0.0381201, -0.0205514, 0.038115, 0.999273, 0.00063874, 0.0205608, -0.000145176, -0.999789, 0.0460669, 0.569583, 0.910954)
+mesh = SubResource("QuadMesh_0jsbj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="wall2"]
+mesh = SubResource("QuadMesh_q6bo7")
+
+[node name="wall3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.00031412, 0, 1, 0, 1, 0, -1, 0, 0.00031412, -1.01313, 0.551992, -0.0218433)
+mesh = SubResource("QuadMesh_eso0h")
+
+[node name="bed" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.392571, -0.192989, 0)
+mesh = SubResource("BoxMesh_trumw")
+surface_material_override/0 = SubResource("ORMMaterial3D_to4tk")
+
+[node name="nightstand" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, -0.000383972, 0, 0.000383972, 1, -0.801995, -0.177319, -0.746758)
+mesh = SubResource("CylinderMesh_e7awo")
+surface_material_override/0 = SubResource("StandardMaterial3D_eso0h")
+
+[node name="pillow 1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.942397, -0.334498, 0, 0.334498, 0.942397, 0, 0, 0, 1, -0.844531, 0.383721, 0.148623)
+mesh = SubResource("BoxMesh_j0tu7")
+surface_material_override/0 = SubResource("ORMMaterial3D_trumw")
+
+[node name="pillow 2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.955015, -0.296558, 0, 0.296558, 0.955015, 0, 0, 0, 1, -0.826247, 0.393489, -0.210022)
+mesh = SubResource("BoxMesh_3xb3d")
+surface_material_override/0 = SubResource("ORMMaterial3D_e7awo")
+
+[node name="extend right wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.998964, 0, -0.0455025, 0, 1, 0, 0.0455025, 0, -0.998964, 1.4545, 0.502559, 0.887885)
+mesh = SubResource("QuadMesh_grw75")
+
+[node name="Part_B" parent="." instance=ExtResource("1_ys316")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.151005, 0.209324, -1.34926)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.73381, 1.46692, 2.52893)
+fov = 80.2672
+
+[node name="Part_C" parent="." instance=ExtResource("2_to4tk")]
+offset_left = -46.0
+offset_top = 46.0
